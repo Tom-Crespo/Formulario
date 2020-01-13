@@ -1,0 +1,34 @@
+body {
+    background-image: url(https://wallpaper.wiki/wp-content/uploads/2017/05/Spots-Light-Blue-Wallpaper-HD.jpg);
+    /*https://images.pexels.com/photos/55787/pexels-photo-55787.jpeg?auto=compress&cs=tinysrgb&h=350*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    font-family: 'Arsenal', sans-serif;
+}
+
+.caja {
+    padding: 2%;
+    text-align: center;
+    margin: 100px 100px 100px 100px;
+    border-style: dashed;
+    border-color: black;
+    width: 80vw;
+    max-width: 600px;
+}
+
+#inicio {
+    margin-top: 2vh;
+    margin-left: 2vw;
+}
+
+#registro {
+    margin-top: 2vh;
+    display: none;
+    margin-left: -2vw;
+}
+
+#mensaje {
+    color: red;
+}
