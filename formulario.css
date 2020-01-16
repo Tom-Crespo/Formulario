@@ -29,6 +29,18 @@ body {
     margin-left: -2vw;
 }
 
+#salir {
+    display: none;
+}
+
 #mensaje {
     color: red;
 }
+
+#confirmacion {
+    color: green;
+    display: none;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+

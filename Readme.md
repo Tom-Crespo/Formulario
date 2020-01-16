@@ -1,31 +1,31 @@
-function pestaña(a, b) {
+1º He ido implementado las pestañas en el html enlaces a css y js.
+
+2º Botones de Inicio de sesión y login
+
+<div class="boton">
+            <button id="login">Iniciar Sesión</button>
+            <button id="singup">Crear una cuenta</button>
+        </div>
+
+    function pestaña(a, b) {
     document.getElementById(a).style.display = "block";
     document.getElementById(b).style.display = "none";
 }
 
-document.getElementById("login").addEventListener("click", function () {
-    pestaña("inicio", "registro");
-});
+3º Input y label para cada uno de los campos en el html, patterns y titulos con restricciones
 
-document.getElementById("singup").addEventListener("click", function () {
-    pestaña("registro", "inicio");
-});
+ <label for="usuario">Correo electrónico o Teléfono:</label>
+                <input type="text" name="usuario" id="usuario"
+                    pattern="^([0-9]{9})|([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})$"
+                    title="Debe ser un eMail o Teléfono correcto" required><br><br>
 
-document.getElementById("entrar").addEventListener("click", function () {
-    entrar();
-});
+4º Botones para entrar y registrarse
+    <input type="submit" id="registrarse" value="Registrarse" onclick="validar()"><br>
+
+5º comparar contraseñas y mostrar
 
 function mostrarContraseña(checkbox) {
     var pass = document.getElementById("contraseña");
-    if (pass.type == "password") {
-        pass.type = "text";
-    } else {
-        pass.type = "password";
-    }
-}
-
-function mostrarContraseña2(checkbox) {
-    var pass = document.getElementById("contraseña2");
     if (pass.type == "password") {
         pass.type = "text";
     } else {
@@ -49,6 +49,8 @@ function confirmacion() {
         return false;
     }
 
+    6º Implementacion de las cookies
+
     setCookie('nombre', email, 365);
     setCookie('contraseña', pass, 365);
     pestaña("inicio", "registro");
@@ -60,6 +62,37 @@ function confirmacion() {
 
     return true;
 }
+
+function validar() {
+    event.preventDefault();
+    confirmacion();
+}
+
+function getCookie(name) {
+  var value = "; " + document.cookie;
+  var parts = value.split("; " + name + "=");
+  if (parts.length == 2) return parts.pop().split(";").shift();
+}
+
+function setCookie(name,value,days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+function delete_cookie( name ) {
+  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+7º Confirmacion de logueo
+
+document.getElementById("entrar").addEventListener("click", function () {
+    entrar();
+});
 
 function login() {
     var pass = document.getElementById("contraseña").value;
@@ -87,15 +120,14 @@ function login() {
     }, 3000);
 }
 
-function validar() {
-    event.preventDefault();
-    confirmacion();
-}
-
 function entrar() {
     event.preventDefault();
     login();
 }
+
+8º Salir y eliminacion de la coockie
+
+<button onclick="salir()">Salir</button>
 
 function salir() {
     document.getElementById("login").style.display = 'inline-block';
@@ -103,25 +135,3 @@ function salir() {
     delete_cookie("usuario");
     pestaña("inicio", "salir");
 }
-
-
-function getCookie(name) {
-  var value = "; " + document.cookie;
-  var parts = value.split("; " + name + "=");
-  if (parts.length == 2) return parts.pop().split(";").shift();
-}
-
-function setCookie(name,value,days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-}
-
-function delete_cookie( name ) {
-  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
-

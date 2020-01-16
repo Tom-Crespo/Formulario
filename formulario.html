@@ -6,55 +6,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="formulario.css">
-    <script type="text/javascript" src="formulario.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans&display=swap" rel="stylesheet">
     <title>Formulario</title>
 </head>
 
 <body>
-    <form onsubmit="get_submit()">
-        <div class="caja">
-            <div class="boton">
-                <button id="login">Iniciar Sesión</button>
-                <button id="singup">Crear una cuenta</button>
-            </div>
+    <div class="caja">
+        <div class="boton">
+            <button id="login">Iniciar Sesión</button>
+            <button id="singup">Crear una cuenta</button>
+        </div>
+        <div id="salir">
+            <h1 id="saludo">
+
+            </h1>
+            <button onclick="salir()">Salir</button>
+        </div>
+        <form>
             <div id="inicio">
-                <label for="email">Correo electrónico o Teléfono:</label>
-                <input type="text" name="email" id="email" pattern="^([0-9]{9})|([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})$" title="Debe ser un eMail o Teléfono correcto" required><br><br>
+                <span id="confirmacion">
+                    Te has registrado satisfactoriamente.
+                    <br>
+                    <br>
+                    Pon tus datos para entrar.
+                </span>
+                <label for="usuario">Correo electrónico o Teléfono:</label>
+                <input type="text" name="usuario" id="usuario"
+                    pattern="^([0-9]{9})|([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})$"
+                    title="Debe ser un eMail o Teléfono correcto" required><br><br>
 
                 <label for="contraseña">Contraseña*:</label>
-                <input type="password" name="contraseña" id="contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title=" Debe contener al menos 8 carácteres, una máyuscula, un número y un carácter especial" required><br>
+                <input type="password" name="contraseña" id="contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title=" Debe contener al menos 8 carácteres, una máyuscula, un número y un carácter especial"
+                    required><br>
 
                 <input type="checkbox" onclick="mostrarContraseña(this)" name="mostrar"><label for="mostrar">Mostrar
                     contraseña</label>
                 <br><br>
                 <input type="submit" id="entrar" value="Entrar">
             </div>
+        </form>
+        <form>
+            <div id="registro">
+                <label for="nombre">Nombre*:</label>
+                <input type="text" name="nombre" id="nombre" required pattern="[A-Za-z]{2,}"
+                    title="Solo letras"><br><br>
+                <label for="apellido">Apellido*:</label>
+                <input type="text" name="apellido" id="apellido" required pattern="[A-Za-z]{2,}"
+                    title="Solo letras"><br><br>
+                <label for="email">Correo electrónico o Teléfono:</label>
+                <input type="text" name="email" id="email"
+                    pattern="^([0-9]{9})|([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})$"
+                    title="Debe ser un eMail o Teléfono correcto" required><br><br>
+                <label for="contraseña2">Contraseña*:</label>
+                <input type="password" name="contraseña2" id="contraseña2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title=" Debe contener al menos 8 carácteres, una máyuscula, un número y un carácter especial"
+                    required><br>
+                <input type="checkbox" onclick="mostrarContraseña2(this)" name="mostrar"><label for="mostrar">Mostrar
+                    contraseña</label>
+                <br><br>
+                <label for="confirmar">Confirmar Contraseña*:</label>
+                <input type="password" name="confirmar" id="confirmar" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title=" Debe ser igual a la contraseña" required><br>
+                <p id="mensaje"></p>
+                <br><br>
+                <label for="fecha">Fecha de nacimiento:</label>
+                <input type="date" name="fecha"><br><br>
+                <input type="submit" id="registrarse" value="Registrarse" onclick="validar()"><br>
+            </div>
+    </div>
     </form>
-    <form onsubmit="get_submit()">
-        <div id="registro">
-            <label for="nombre">Nombre*:</label>
-            <input type="text" name="nombre" id="nombre" required pattern="[A-Za-z]{2,}" title="Solo letras"><br><br>
-            <label for="apellido">Apellido*:</label>
-            <input type="text" name="apellido" id="apellido" required pattern="[A-Za-z]{2,}" title="Solo letras"><br><br>
-            <label for="email">Correo electrónico o Teléfono:</label>
-            <input type="text" name="email" id="email" pattern="^([0-9]{9})|([A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3})$" title="Debe ser un eMail o Teléfono correcto" required><br><br>
-            <label for="contraseña">Contraseña*:</label>
-            <input type="password" name="contraseña2" id="contraseña2" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title=" Debe contener al menos 8 carácteres, una máyuscula, un número y un carácter especial" required><br>
-            <input type="checkbox" onclick="mostrarContraseña2(this)" name="mostrar"><label for="mostrar">Mostrar
-                contraseña</label>
-            <br><br>
-            <label for="confirmar">Confirmar Contraseña*:</label>
-            <input type="password" name="confirmar" id="confirmar" required><br>
-            <p id="mensaje"></p>
-            <br><br>
-            <label for="fecha">Fecha de nacimiento:</label>
-            <input type="date" name="fecha"><br><br>
-            <input type="submit" id="registrarse" value="Registrarse"><br>
-        </div>
-        </div>
-    </form>
-    <script type=" text/javascript " src="formulario.js "></script>
+    <script type="text/javascript" src="formulario.js"></script>
 </body>
 
 </html>
