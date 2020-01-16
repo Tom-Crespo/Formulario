@@ -74,6 +74,7 @@ function login() {
         document.getElementById("confirmacion").style.display = "block";
         document.getElementById("confirmacion").style.color = "red";
         document.getElementById("confirmacion").innerHTML = "Los datos no coinciden";
+        return false;
     }
 
     setCookie('usuario', usuario, 1/24);

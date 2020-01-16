@@ -46,7 +46,7 @@
                 <input type="submit" id="entrar" value="Entrar">
             </div>
         </form>
-        <form>
+        <form onsubmit="validar()">
             <div id="registro">
                 <label for="nombre">Nombre*:</label>
                 <input type="text" name="nombre" id="nombre" required pattern="[A-Za-z]{2,}"
@@ -72,7 +72,7 @@
                 <br><br>
                 <label for="fecha">Fecha de nacimiento:</label>
                 <input type="date" name="fecha"><br><br>
-                <input type="submit" id="registrarse" value="Registrarse" onclick="validar()"><br>
+                <input type="submit" id="registrarse" value="Registrarse" ><br>
             </div>
     </div>
     </form>
