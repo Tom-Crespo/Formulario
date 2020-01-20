@@ -136,6 +136,8 @@ function salir() {
     pestaña("inicio", "salir");
 }
 
-9º Test 
+9º Test de pruebas.
 El 1º Test se rellena de forma automática. 
 Rellena registro, se loguea y después sale de la sesión.
+2º Da error al rellenar el campo del nombre. 
+3º Da error en las contraseñas (son distintas).
