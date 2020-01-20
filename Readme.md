@@ -135,3 +135,7 @@ function salir() {
     delete_cookie("usuario");
     pestaña("inicio", "salir");
 }
+
+9º Test 
+El 1º Test se rellena de forma automática. 
+Rellena registro, se loguea y después sale de la sesión.
